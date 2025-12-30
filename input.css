@@ -1,0 +1,487 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========== SMOOTH SCROLLING ========== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========== ANIMATIONS ========== */
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale up animation */
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Shake animation for errors */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Animation classes - initially hidden */
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-on-scroll.animated {
+  animation-fill-mode: both;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.5s ease-out forwards;
+}
+
+/* Staggered animation delays */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.delay-300 {
+  animation-delay: 0.3s;
+}
+.delay-400 {
+  animation-delay: 0.4s;
+}
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+/* ========== HAMBURGER & CLOSE ICON ANIMATIONS ========== */
+
+/* Hamburger icon hover and tap animation */
+#hamburger-btn {
+  @apply transition-transform duration-200;
+}
+
+#hamburger-btn:hover {
+  transform: scale(1.1);
+}
+
+#hamburger-btn:active {
+  transform: scale(0.95);
+}
+
+#hamburger-btn img {
+  @apply transition-all duration-200;
+}
+
+#hamburger-btn:hover img {
+  opacity: 0.7;
+}
+
+/* Close icon rotation animation */
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+#close-menu-btn {
+  @apply transition-transform duration-200;
+  animation: rotateIn 0.3s ease-out;
+}
+
+#close-menu-btn:hover {
+  transform: rotate(90deg) scale(1.1);
+}
+
+#close-menu-btn:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+#close-menu-btn img {
+  @apply transition-all duration-200;
+}
+
+/* ========== MOBILE MENU TRANSITIONS ========== */
+#mobile-menu {
+  transition: opacity 0.3s ease-in-out;
+}
+
+#mobile-menu.flex {
+  animation: fadeIn 0.3s ease-out;
+}
+
+#mobile-menu .mobile-nav-link,
+#mobile-menu a {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+#mobile-menu.flex .mobile-nav-link:nth-child(1) {
+  animation-delay: 0.1s;
+}
+#mobile-menu.flex .mobile-nav-link:nth-child(2) {
+  animation-delay: 0.2s;
+}
+#mobile-menu.flex .mobile-nav-link:nth-child(3) {
+  animation-delay: 0.3s;
+}
+#mobile-menu.flex a:last-child {
+  animation-delay: 0.4s;
+}
+
+/* ========== HOVER EFFECTS ========== */
+
+/* Button hover lift effect */
+a[href],
+button {
+  @apply transition-all duration-200;
+}
+
+/* Card hover effect */
+.card-hover {
+  @apply transition-all duration-300;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Tab active indicator transition */
+.tab-inner {
+  @apply transition-all duration-300;
+}
+
+/* Accordion content transition */
+.accordion-content {
+  @apply transition-all duration-300 ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.accordion-content.open {
+  max-height: 500px;
+  padding-bottom: 1.5rem;
+}
+
+/* ========== FOCUS STATES FOR ACCESSIBILITY ========== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  @apply outline-2 outline-offset-2 outline-lightBlue;
+}
+
+/* Background shapes for hero and tabs sections */
+@media screen(lg) {
+  .bg-hero {
+    width: 2000px;
+    height: 300px;
+    left: 30%;
+    @apply absolute top-52 bg-lightBlue rounded-l-full;
+  }
+
+  .bg-tabs {
+    width: 2000px;
+    height: 300px;
+    right: 60%;
+    @apply absolute top-60 rounded-r-full bg-lightBlue;
+  }
+}
+
+/* Footer logo - make it white */
+.logo-white {
+  filter: brightness(0) invert(1);
+}
+
+/* Mobile menu logo - white circle with dark bookmark, white text */
+.logo-mobile-menu {
+  /* This makes the blue circle white and inverts colors appropriately */
+  filter: brightness(0) invert(1);
+}
+
+/* Override for mobile menu - we want circle white, bookmark dark */
+.logo-mobile-menu-wrapper {
+  position: relative;
+}
+
+/* Social icons hover effect */
+.social-icon {
+  @apply w-6 h-6 transition-all duration-200;
+}
+
+.social-icon:hover {
+  filter: brightness(0) saturate(100%) invert(47%) sepia(94%) saturate(1721%)
+    hue-rotate(331deg) brightness(101%) contrast(95%);
+}
+
+/* Mobile social icons */
+.social-icon-mobile {
+  @apply w-6 h-6;
+  filter: brightness(0) invert(1);
+}
+
+/* Accordion arrow rotation */
+.accordion-arrow {
+  @apply transition-transform duration-300;
+}
+
+.accordion-arrow.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Email input error state */
+#email-input.error {
+  @apply border-2 border-lightRed;
+  background-image: none;
+}
+
+/* Tab content transitions */
+.tab-content {
+  @apply transition-opacity duration-300;
+}
+
+/* Dots background for cards */
+.bg-dots {
+  background-position: center;
+  height: 4px;
+}
+
+/* ========== DARK MODE ========== */
+
+/* Smooth theme transition */
+html {
+  @apply transition-colors duration-300;
+}
+
+body {
+  @apply transition-colors duration-300 bg-white text-veryDarkBlue;
+}
+
+/* Dark mode base styles */
+html.dark {
+  @apply bg-darkBg;
+}
+
+html.dark body {
+  @apply bg-darkBg text-darkText;
+}
+
+/* Dark mode text colors */
+.dark h1,
+.dark h2,
+.dark h3 {
+  @apply text-darkText;
+}
+
+.dark .text-veryDarkBlue {
+  @apply text-darkText;
+}
+
+.dark .text-grayishBlue {
+  @apply text-darkTextMuted;
+}
+
+.dark .text-gray-400 {
+  @apply text-darkTextMuted;
+}
+
+.dark .text-gray-600 {
+  @apply text-darkTextMuted;
+}
+
+/* Dark mode cards */
+.dark .card-hover,
+.dark .bg-white {
+  @apply bg-darkCard;
+}
+
+.dark .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+}
+
+/* Dark mode borders */
+.dark .border-gray-200 {
+  @apply border-gray-700;
+}
+
+.dark .border-b {
+  @apply border-gray-700;
+}
+
+/* Dark mode navbar on scroll */
+.dark nav.shadow-md {
+  @apply bg-darkBg bg-opacity-95;
+}
+
+/* Dark mode accordion */
+.dark .accordion-trigger {
+  @apply text-darkText hover:text-lightRed;
+}
+
+.dark .accordion-content p {
+  @apply text-darkTextMuted;
+}
+
+/* Dark mode accordion arrow - invert for visibility */
+.dark .accordion-arrow {
+  filter: brightness(0) invert(1);
+}
+
+/* Dark mode tabs */
+.dark .tab {
+  @apply text-darkTextMuted hover:text-lightRed;
+}
+
+/* Dark mode input */
+.dark #email-input {
+  @apply bg-darkCard text-darkText border border-gray-600;
+}
+
+.dark #email-input::placeholder {
+  @apply text-darkTextMuted;
+}
+
+/* Dark mode mobile menu links */
+.dark .mobile-nav-link {
+  @apply text-darkText;
+}
+
+/* Dark mode hamburger icon */
+.dark #hamburger-btn img {
+  filter: brightness(0) invert(1);
+}
+
+/* Dark mode logo - make text white while keeping icon colors */
+.dark #logo .logo-text {
+  fill: #ffffff;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  @apply p-2 rounded-full transition-all duration-300;
+}
+
+.theme-toggle:hover {
+  @apply bg-gray-200;
+}
+
+.dark .theme-toggle:hover {
+  @apply bg-gray-700;
+}
+
+.theme-toggle svg {
+  @apply w-5 h-5 transition-transform duration-300;
+}
+
+.theme-toggle:hover svg {
+  transform: rotate(15deg);
+}
+
+/* Sun icon (shown in dark mode) */
+.sun-icon {
+  @apply hidden;
+}
+
+.dark .sun-icon {
+  @apply block text-yellow-400;
+}
+
+/* Moon icon (shown in light mode) */
+.moon-icon {
+  @apply block text-veryDarkBlue;
+}
+
+.dark .moon-icon {
+  @apply hidden;
+}
