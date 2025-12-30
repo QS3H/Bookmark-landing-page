@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [GitHub Repository](https://github.com/QS3H)
-- Live Site URL: [Live Demo](https://your-live-site-url.com)
+- Solution URL: [my frontend mentor solution](https://www.frontendmentor.io/solutions/bookmark-landing-page-with-typescript-and-tailwindcss-H_5xzshfI6)
+- Live Site URL: [Live Demo](https://qs3h.github.io/Bookmark-landing-page/)
 
 ## My process
 
