@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Desktop Design](./images/bookmark-landing-page-desktop-screenshot.png)
+![Desktop Design](./images/desktop-screenshot.png)
 
 ### Links
 
