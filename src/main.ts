@@ -60,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeMenuBtn = document.getElementById("close-menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
   const logo = document.getElementById("logo") as HTMLImageElement;
-  const hamburgerIcon = document.getElementById("hamburger-icon");
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
   const mobileControls = document.getElementById("mobile-controls");
 
